@@ -1,0 +1,11 @@
+Methodology Report
+
+Description of the Model
+We trained various Chemprop-based multi-task and single-task models. We also fine-tuned with pre-trained Chemprop models based on this work (arxiv.org/pdf/2510.12719).
+
+Training data were combined with proprietary datasets when available. Targets were log10-transformed with the exception of LogD. For CLint and permeability endpoints, 0s are replaced with half of the smallest non-zero values before being log10 transformed. For PPB endpoints, 0s are set to 10^(-6) before being log10-transformed, considering the typical PPB detection limit. Chemprop hyperparameters from our internal Chemprop model were lightly optimized (<20 models trained). No additional descriptors/features were used. 
+Performance comments
+Additional data do not always improve the prediction performances on the supplied test set, but do seem to help arrive at a more generalizable model by preventing overfitting. Optimizing the model solely based on the leaderboard results can be misleading. Very different model predictions sometimes give almost identical error metrics on the leaderboard. 
+
+
+
